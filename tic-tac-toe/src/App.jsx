@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 
-
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -74,13 +73,13 @@ export default function Game() {
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
-      description = 'Go to move #' + move;
+      description = 'Go to move: '+ move;
     } else {
       description = 'Go to game start';
     }
     return (
       <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
+        <button onClick={() => jumpTo(move)} className='desc'>{description}</button>
       </li>
     );
   });
@@ -91,7 +90,7 @@ export default function Game() {
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
-        <ol>{moves}</ol>
+        <ol className='line-text'>{moves}</ol>
       </div>
     </div>
   );
